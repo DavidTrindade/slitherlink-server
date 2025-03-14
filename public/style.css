@@ -1,10 +1,14 @@
 table {
     border-collapse: collapse;
     border: 2px solid rgb(0, 0, 0);
+    table-layout: fixed;
 }
 
 td {
-    text-align: center;
     border: 1px solid rgb(160 160 160);
-    padding: 30px 30px;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px;
+    width: 60px;
+    padding: 0;
 }
