@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slitherlink Puzzle Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Create a Puzzle</h1>
+    <div>
+        <label>Columns:</label>
+        <input type="number" id="cols" min="1" value="5">
+        <label>Rows:</label>
+        <input type="number" id="rows" min="1" value="5">
+        <button id="generateGridBtn">Generate Grid</button>
+    </div>
+
+    <div id="gridContainer">
+        <table id="gridTable"></table>
+    </div>
+
+    <div>
+        <button id="showJsonBtn">Show JSON</button>
+        <button id="saveServerBtn">Save to Server</button>
+    </div>
+
+    <div>
+        <textarea id="jsonOutput" readonly style="width:300px;"></textarea>
+    </div>
+
+    <script src="builder.js"></script>
+</body>
+
+</html>
