@@ -1,14 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 15px;
+}
+
+.controls label {
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.controls input[type="number"] {
+    width: 60px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+    color: #007BFF;
+}
+
+/* Buttons */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 table {
     border-collapse: collapse;
     border: 2px solid rgb(0, 0, 0);
     table-layout: fixed;
+    margin-bottom: 20px;
+    background-color: #fff;
 }
 
-td {
-    border: 1px solid rgb(160 160 160);
+table#gridTable td {
     text-align: center;
-    vertical-align: middle;
-    height: 60px;
+    border: 1px solid #ccc;
     width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
     padding: 0;
+    transition: background-color 0.1s;
+}
+
+table#gridTable td:hover {
+    background-color: #e6f2ff;
+}
+
+#puzzleListContainer th {
+    background-color: #f0f0f0;
+    /* Subtle header background */
+    color: #333;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+#puzzleListContainer td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#puzzleListContainer tr:hover td {
+    background-color: #fafafa;
+}
+
+#jsonOutput {
+    min-height: 100px;
+    font-family: monospace;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    background-color: #fff;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+
+.status-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.status-message.success {
+    background-color: #28a745;
+    /* green */
+}
+
+.status-message.error {
+    background-color: #dc3545;
+    /* red */
 }
