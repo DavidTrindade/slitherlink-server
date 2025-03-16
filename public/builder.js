@@ -147,6 +147,20 @@ async function refreshPuzzleList() {
         const table = document.createElement('table');
         table.style.borderCollapse = 'collapse';
 
+        const headerRow = document.createElement('tr');
+
+        const thPuzzleId = document.createElement('th');
+        thPuzzleId.textContent = 'Puzzle ID';
+        thPuzzleId.style.padding = '8px';
+        headerRow.appendChild(thPuzzleId);
+
+        const thActions = document.createElement('th');
+        thActions.textContent = 'Actions';
+        thActions.style.padding = '8px';
+        headerRow.appendChild(thActions);
+
+        table.appendChild(headerRow);
+
         for (let puzzle of puzzles) {
             const row = document.createElement('tr');
 
