@@ -14,6 +14,7 @@ app.get('/puzzles', async (req, res) => {
     const { data, error } = await supabase
         .from("puzzle_definitions")
         .select("*")
+        .order("created_at")
 
     if (error) {
         console.error(error);
@@ -22,8 +23,6 @@ app.get('/puzzles', async (req, res) => {
 
     return res.json(data);
 })
-
-
 
 app.listen(port, () => {
     console.log(`Puzzle server running on port ${port}`)
