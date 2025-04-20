@@ -1,7 +1,12 @@
-const express = require('express');
-require('dotenv').config();
+import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+import { createClient } from "@supabase/supabase-js";
 
-const { createClient } = require('@supabase/supabase-js');
+dotenv.config();
+
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
+    throw new Error("Missing Supabase configuration in environment variables");
+}
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
@@ -10,7 +15,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get('/puzzles', async (_req, res) => {
+app.get('/puzzles', async (_req: Request, res: Response): Promise<void> => {
     const { data, error } = await supabase
         .from("puzzle_definitions")
         .select("*")
@@ -18,13 +23,13 @@ app.get('/puzzles', async (_req, res) => {
 
     if (error) {
         console.error(error);
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 
-    return res.json(data);
+    res.json(data);
 })
 
-app.get('/daily', async (_req, res) => {
+app.get('/daily', async (_req: Request, res: Response): Promise<void> => {
     const { data, error } = await supabase
         .from("daily_puzzle")
         .select("*")
@@ -32,10 +37,10 @@ app.get('/daily', async (_req, res) => {
 
     if (error) {
         console.error(error);
-        return res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 
-    return res.json(data);
+    res.json(data);
 })
 
 app.listen(port, () => {
